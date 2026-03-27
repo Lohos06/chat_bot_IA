@@ -55,6 +55,7 @@ vector_store.add_documents(all_splits)
 # TOOL
 @tool
 def retrieve_context(query: str):
+    """Retrieve relevant context from the vector store based on a query."""
     docs = vector_store.similarity_search(query, k=2)
     return "\n\n".join(doc.page_content for doc in docs)
 
